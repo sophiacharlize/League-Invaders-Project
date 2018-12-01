@@ -5,18 +5,23 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer t;
+	GameObject o;
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		repaint();
+
+		o.update();
 	}
 
 	public GamePanel() {
 		t = new Timer(1000 / 60, this);
+		o = new GameObject(50, 50, 50, 50);
 	}
 
 	public void startGame() {
@@ -26,7 +31,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	@Override
 
 	public void paintComponent(Graphics g) {
-		g.fillRect(10, 10, 100, 100);
+		o.draw(g);
 
 	}
 
@@ -40,6 +45,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		System.out.println("keyPressed");
+
 	}
 
 	@Override

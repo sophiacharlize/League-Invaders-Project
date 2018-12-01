@@ -6,8 +6,8 @@ public class LeagueInvaders {
 
 	int width = 500;
 	int height = 800;
-	JFrame frame = new JFrame();
-	GamePanel g = new GamePanel();
+	JFrame frame;
+	GamePanel g;
 
 	public static void main(String[] args) {
 		LeagueInvaders x = new LeagueInvaders();
@@ -15,11 +15,12 @@ public class LeagueInvaders {
 	}
 
 	public LeagueInvaders() {
-		this.frame = frame;
-		this.g = g;
+		frame = new JFrame();
+		g = new GamePanel();
 	}
 
 	public void setup() {
+
 		frame.add(g);
 		frame.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
